@@ -90,11 +90,8 @@ loki.write "local" {
     url = "http://loki:3100/loki/api/v1/push"
 
     retry_on_http_429 = true
-
-    backoff_config {
-      min_period = "500ms"
-      max_period = "5m"
-      max_retries = 10
-    }
+    min_backoff_period = "500ms"
+    max_backoff_period = "5m"
+    max_backoff_retries = 10
   }
 }
